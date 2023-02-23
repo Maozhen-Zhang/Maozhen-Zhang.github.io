@@ -2,16 +2,15 @@
 layout: about
 title: about
 permalink: /
-subtitle: Graduate Student @ Tsinghua University
-
+subtitle: Graduate Student @ Dalian University of Technology
 profile:
   align: right
-  image: szc.jpg
+  image: zmz.jpg
   image_circular: false # crops the image to make it circular
-<!--   address: >
+address: 
     <p>📧 Email</p>
     <p>🖥︎ Github</p>
-    <p>📖 Google Scholar</p> -->
+    <p>📖 Google Scholar</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -25,9 +24,13 @@ Put your address / P.O. box / other info right below your picture. You can also 
 Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
 
  -->
-I am a second-year graduate student at [Division of Information Science and Technology](https://www.sigs.tsinghua.edu.cn/en/faculty_list/list.htm?key=), [Tsinghua Shenzhen International Graduate School](https://www.sigs.tsinghua.edu.cn/en/), [Tsinghua University](https://www.tsinghua.edu.cn/en/), advised by Prof. [Haoqian Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
-<!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
-Before that, I obtained my B.E. degree (GPA: 4.22/5.0, Rank: 1) in Automation from [Dalian Maritime University](http://english.dlmu.edu.cn/).
 
-My research interest lies in machine learning on medical image analysis. I currently focus on representation learning on high-resolution images for tumor diagnosis and survival prediction in computational pathology.
+我是 [大连理工大学](https://www.dlut.edu.cn/)博一的学生，导师是副教授 [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
+
+I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Haoqian Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
+<!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
+
+Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
+
+My research interest lies in federated learning on privacy preserving. I am currently focused on federal learning under privacy protection, privacy computing methods for protecting user data.
 <!-- My long-term goal is to make machine learning algorithms robust and interpretable. -->
