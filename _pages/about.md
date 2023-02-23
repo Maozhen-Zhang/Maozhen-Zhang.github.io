@@ -8,7 +8,7 @@ profile:
   image: zmz.jpg
   image_circular: false # crops the image to make it circular
 address: 
-    <p>📧 Email</p>
+    <p>📧 Email:Zhang.maozhen@foxmail.com</p>
     <p>🖥︎ Github</p>
     <p>📖 Google Scholar</p>
 
@@ -25,9 +25,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
  -->
 
-我是 [大连理工大学](https://www.dlut.edu.cn/)博一的学生，导师是副教授 [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
-
-I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Haoqian Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
+I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Bo Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
 <!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
 
 Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
