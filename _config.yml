@@ -67,12 +67,12 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: szc19990412 # your GitHub user name
+github_username: Maozhen-Zhang # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: # your Twitter handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 linkedin_username: # your LinkedIn user name
-scholar_userid: AGmtoloAAAAJ&hl=zh # your Google Scholar ID
+scholar_userid: 0rJt0NYAAAAJ&hl=zh # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 orcid_id: # your ORCID ID
@@ -232,8 +232,8 @@ display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will
 
 scholar:
 
-  last_name: [Shao]
-  first_name: [Zhuchen]
+  last_name: [Maozhen]
+  first_name: [Zhang]
 
   style: apa
   locale: en
