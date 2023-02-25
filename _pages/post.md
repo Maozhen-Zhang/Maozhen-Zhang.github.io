@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: page
 permalink: /post/
 title: post
 description: 帖子
