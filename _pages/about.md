@@ -14,7 +14,7 @@ address:
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: false  # includes social icons at the bottom of the page
 ---
 <!-- 
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
@@ -26,9 +26,11 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
  -->
 
 I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Bo Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
+
 <!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
 
 Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
 
 My research interest lies in federated learning on privacy preserving. I am currently focused on federal learning under privacy protection, privacy computing methods for protecting user data.
+
 <!-- My long-term goal is to make machine learning algorithms robust and interpretable. -->
