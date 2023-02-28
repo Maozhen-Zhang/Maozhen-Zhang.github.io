@@ -3,6 +3,6 @@ layout: page
 permalink: /post/
 title: post
 description: 帖子
-nav: true
+nav: false
 nav_order: 4
 ---
