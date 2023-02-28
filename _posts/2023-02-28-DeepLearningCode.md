@@ -1,10 +1,10 @@
 ---
 layout: post
 title: deep learning code
-date: 2020-09-28 12:52:00-0400
+date: 2023-02-28 12:52:00-0400
 description: comprehend python and deep learning come
-tags: formatting
-categories: sample-posts external-services
+tags: code
+categories: code-comprehend Deep-Learning
 ---
 
 <!--layout: post
