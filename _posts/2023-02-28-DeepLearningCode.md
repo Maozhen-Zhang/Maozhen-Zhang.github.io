@@ -18,7 +18,7 @@ categories: code-comprehend Deep-Learning
 
 ## 普通网络训练时
 
-模型训练时：
+模型训练时： 
 
 ```python
 #外层epoch循环
