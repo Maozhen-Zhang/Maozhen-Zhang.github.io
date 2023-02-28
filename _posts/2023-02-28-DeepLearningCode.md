@@ -7,9 +7,12 @@ tags: code
 categories: code-comprehend Deep-Learning
 #nav: true
 #permalink: /post/
+#comments: true
 ---
 
 # 代码理解
+
+## 普通网络训练时  
 
 模型训练时：
 
