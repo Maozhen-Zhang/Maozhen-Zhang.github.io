@@ -1,7 +1,7 @@
 ---
 layout: post
 title: deep learning code
-date: 2023-02-28 12:52:00-0400
+date: 2020-02-28 12:52:00-0400
 description: comprehend python and deep learning come
 tags: code
 categories: code-comprehend Deep-Learning
