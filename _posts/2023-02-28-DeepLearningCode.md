@@ -1,13 +1,10 @@
 ---
 layout: post
 title: deep learning code comprehend
-date: 2023-02-28 12:10:00-0400
-description: 理解python、深度学习代码
+date: 2023-02-28 12:10:00
+description: comprehend python and deep learning come
 tags: code
 categories: code-comprehend Deep-Learning
-#nav: true
-#permalink: /post/
-#comments: true
 ---
 
 # 代码理解
