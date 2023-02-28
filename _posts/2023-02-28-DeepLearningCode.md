@@ -1,12 +1,11 @@
 ---
 layout: post
 title: deep learning code
-date: 2020-02-28 12:52:00-0400
+date: 2023-02-28 12:52:00-0400
 description: comprehend python and deep learning come
 tags: code
 categories: code-comprehend Deep-Learning
 ---
-
 <!--layout: post
 title: deep learning code comprehend
 date: 2023-02-28 12:10:00
@@ -17,7 +16,7 @@ categories: code-comprehend Deep-Learning
 
 # 代码理解
 
-## 普通网络训练时  
+## 普通网络训练时
 
 模型训练时：
 
@@ -29,14 +28,14 @@ for e in range(args.epochs):
   for i,data in enumerate(train_loader):
     #data[0]是输入数据，data[1]是标签
     inputs, labels = data[0].to(device), data[1].to(device)
-    
+  
     #一些方法的获取和初始化
     #损失函数
     criterion = nn.CrossEntropyLoss()  # 交叉熵损失
     #优化器>>>实现随机梯度下降算法,lr– 学习率,momentum– 动量因子
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)  
     optimizer.zero_grad()#调用backward()之前要将梯度清零
-    
+  
 		#向前、向后、优化
     outputs = net(inputs)							#前向
 		loss = criterion(outputs, labels)	#求损失操作：将输出和标签输入
@@ -44,11 +43,7 @@ for e in range(args.epochs):
     optimizer.step()									#优化器对x值进行更新，
 ```
 
-
-
 #### 细节
-
-
 
 ##### loss.backward()理解
 
@@ -61,6 +56,7 @@ loss = nn.CrossEntropyLoss(outputs, labels).backward()
 ```
 
 将损失loss向输入侧进行反向传播，同时对于需要进行梯度计算的所有变量$x(requires_grad=True)$，计算梯度$\frac{d}{dx}loss$并将其累积到梯度$x.grad$中备用，即
+
 $$
 x.grad = x.grad+\frac{d}{dx}loss
 $$
