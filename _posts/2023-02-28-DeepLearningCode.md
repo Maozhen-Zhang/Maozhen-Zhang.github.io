@@ -1,11 +1,19 @@
 ---
 layout: post
-title: a a a
-date: 2023-09-28 11:12:00-0400
-description: an example of a blog post with twitter
+title: deep learning code
+date: 2020-09-28 12:52:00-0400
+description: comprehend python and deep learning come
 tags: formatting
 categories: sample-posts external-services
 ---
+
+<!--layout: post
+title: deep learning code comprehend
+date: 2023-02-28 12:10:00
+description: comprehend python and deep learning come
+tags: code
+categories: code-comprehend Deep-Learning
+-->
 
 # 代码理解
 
