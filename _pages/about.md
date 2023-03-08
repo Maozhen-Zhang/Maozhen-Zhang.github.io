@@ -25,7 +25,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
  -->
 
-I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Bo Wang](https://www.sigs.tsinghua.edu.cn/whq_en/main.htm).
+I am a First year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
 
 <!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
 
