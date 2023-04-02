@@ -168,13 +168,136 @@ $Z\subseteq\{z^{i,1},z^{i,2},...,z^{i,n}\}$是第$i$台机器上数据点的子�
 
 ## Theoretical guarantees
 
-考虑具有梯度平均的IFCA
+总共有$T$次并行迭代，将每个客户端上的$n$个数据点划分为$2T$次不相交的子集，每个子集有$n^\prime=\frac{n}{2T}$个数据
+
+> 如第$i$-个客户端上，使用子集$\widehat Z^{(0)}_i,...,\widehat Z^{(T-1)}_i$聚类，使用子集$Z^{(0)}_i,...,Z^{(T-1)}_i,$梯度下降
+
+使用$\hat Z_i^{(t)}$来聚类，用$Z_i^{(t)}$来计算梯度
+
+算法的每次迭代使用新的样本数据，使用心得数据点集获得聚类估计并计算梯度
+
+> 目的是消除聚类估计和梯度计算之间的相互依赖，并确保在每次迭代中使用新的独立同分布
+
+即第$j$个簇的参数向量的更新规则为：
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230325232437953.png" alt="image-20230325232437953" style="zoom:50%;" />
+
+$S^{(t)}_j$表示第$t$次迭代中集群身份估计为$j$的客户端集合，后续作者讨论了两种模型下的收敛性保证:
+
+- 5.1节分析了具有高斯特征和平方损失的线性模型下的算法
+- 5.2节分析了强凸损失函数的常规设置下的算法
+
+在第 5.2 节中讨论了广泛研究的混合线性回归问题 [46、47] 的分布式公式。
+
+------
+
+
+
+### 线性模型的平方损失
+
+假设第$j$-簇聚类中客户端的数据产生的方式是：$i\in S^*_j$，第$i$个客户端的特征反应满足
+$$
+y^{i,\ell}=\langle x^{i,\ell},\theta^*_j\rangle+\epsilon^{i,\ell}
+$$
+其中$x^{i,\ell}~\sim\mathcal N(0,I_d)$，独立于$x^{i,\ell}的$加性噪声(additive noise)$\epsilon^{i,\ell}\sim\mathcal N(0,\sigma^2)$，如我们所见，该模型是分布式线性回归模型的混合，在上述设置下， 参数$\{\theta^*_j\}^k_{j=1}$是总损失函数$F^j(\cdot)$的最小值
+
+> 加性噪声$\epsilon^{i,\ell}$与$x^{i,\ell}的$无关
+
+1. 将$p_i:=\vert S^*_j\vert/m$作为第$j$个聚簇中客户端数量占总数的比例，
+
+2. 并让$p:=\min\{p_1,p_2,...,p_k\}$，
+
+3. 同样定义最小分离$\Delta$，$\Delta:=\min_{j\not=j^\prime\Vert \theta^*_j-\theta^*_{j^\prime}\Vert}$，$\rho:=\frac{\Delta^2}{\sigma^2}$作为信噪比
+
+在确定收敛结果前，陈述一些假设，回想$n^\prime$表示每步操作中每个客户端的数据数量
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326095722576.png" alt="image-20230326095722576" style="zoom:50%;" />
+
+在假设中，作者假设初始化足够接近$\theta^*_j$，并指出到这是混合模型[1, 45]的收敛分析中的标准假设，因为这是混合模型问题的非凸优化，在假设2中，我们对$n^\prime,m,p,d$做出了温和的假设。条件$pmn^\prime\gtrsim d$的简单假设，我们每次迭代时对于每个集群全部数据的大小至少和参数空间维度一样大，条件$$\Delta \gtrsim \frac{\sigma}{p} \sqrt{\frac{d}{m n^{\prime}}}+\exp \left(-c\left(\frac{\rho}{\rho+1}\right)^2 n^{\prime}\right)$$保证迭代接近$\theta^*_j$
+
+作者对算法进行了单步分析，假设在某个迭代中，获得了接近真实$\theta^*_j$的参数向量$\theta_j$，并且表明$\theta_j$以指数速率收敛于$\theta^*_j$并带有一个误差底线
+
+> 作者假设初始化足够接近$\theta^*_j$，这是混合模型[1,45]收敛分析的标准假设，
+>
+> 作者在假设2中，对$n^\prime,m,p,d$做出了宽松的假设，$pmn^\prime\gtrsim d$，$d$是参数的维度
+
+**Theorem 1.**考虑线性模型并假设Assumptions 1和2成立。假设在某次迭代中得到的参数向量$\theta_j$满足$\Vert\theta_j-\theta^*_j\Vert\le\frac{1}{4}\Delta$
+
+让$\theta^+_j$表示这次迭代后的向量，存在通用常数$c_1,c_2,c_3,c_4>0$，这样当我们选择步长$\gamma=c_1/p$的概率至少为$1-1/\text{poly}(m)$，对所有的$j\in[k]$，我们有：
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326113410093.png" alt="image-20230326113410093" style="zoom:50%;" />
+
+附录中证明了定力1，简要总结思路：
+
+- 使用初始化条件，作者表明集合$\{S_j\}^k_{j=1}$与$\{S^*_j\}^k_{j=1}$有显著的重叠
+- 在重叠集合中，认为因为线性回归的基本属性，梯度的步骤存在了收缩和误差。
+- 然后作者限制了错误分类客户端的梯度范数并将它们添加到误差层
+- 作者通过结合正确分类和错误分类的客户端的贡献来证明
+- 迭代应用Therem1并在一下推论中获得最终解$\widehat \theta_j$的精度
+
+**Corollary 1.**  考虑到线性模型并假设Assumptions 1和2成立。通过选择$\gamma=c_1/p$的概率至少为$$1-\frac{\log (\Delta / 4 \varepsilon)}{\operatorname{poly}(m)}$$,在并行迭代$T=\log\frac{\Delta}{4\epsilon}$次后，我们对于所有$j\in[k]$，有$\Vert\theta_j-\theta^*_j\Vert\le\frac{1}{4}\Delta$，其中$$\varepsilon=c_5 \frac{\sigma}{p} \sqrt{\frac{d}{m n^{\prime}}}+c_6 \exp \left(-c_4\left(\frac{\rho}{\rho+1}\right)^2 n^{\prime}\right)$$
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326161424049.png" alt="image-20230326161424049" style="zoom:50%;" />
+
+检验最终的正确性：
+
+由于每个客户端的数据点$n=2n^\prime T=2n^\prime\log(\Delta/4\epsilon)$，我们知道对于最小的集群，总共有$2pmn^\prime\log(\Delta/4\epsilon)$个数据点，根据线性回归的minimax rate[41]，我们能知道即使知道真实的聚类身份，我们也无法获得比$\mathcal O(\sigma\sqrt{\frac{d}{pmn^\prime\log(\Delta/4\epsilon)}})$更优的错误率。我们统计正确率$\epsilon$与此错误率相比，可以看到第一项$\frac{\sigma}{p}\sqrt\frac{d}{mn^\prime}$在$\epsilon$中与minimax rate相当，只是存在一个对数因子和一个关于数据维度$p$的依赖关系。同时，该算法的第二项误差随着样本量$n^\prime$的增加而指数级衰减，因此最终的统计误差接近最优的水平
+
+------
+
+### Strongly convex loss functions
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326150844392.png" alt="image-20230326150844392" style="zoom:50%;" />
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326150908592.png" alt="image-20230326150908592" style="zoom:50%;" />
+
+Assumption 3:假设总的损失函数$F^j(\theta)$是强凸函数和光滑的，不会对单个损失函数$f(\theta,z)$做出convexity或smoothness的假设，相反对$f(\theta;z)$和$\nabla f(\theta;z)$下的分布假设：
+
+Assumption 4:对于每个$\theta$和$j\in[k]$，当$z$是$\mathcal D_j$的随机采样，$\eta^2$是$f(\theta;z)$的方差上界，即$$\mathbb{E}_{z \sim \mathcal{D}_j}\left[\left(f(\theta ; z)-F^j(\theta)\right)^2\right] \leq \eta^2$$
+
+Assumption 5:对于每个$\theta$和$j\in[k]$，当$z$是$\mathcal D_j$的随机采样，$v^2$是$\nabla f(\theta;z)$的方差上界，即$$\mathbb{E}_{z \sim \mathcal{D}_j}\left[\Vert\nabla f(\theta ; z)-\nabla F^j(\theta)\Vert^2_2\right] \leq v^2$$
+
+
+
+梯度的有界方差在分析SGD[6]中非常常见。
+
+本文中作者使用损失函数来确定聚类身份，因此还需要对$f(\theta;z)$的进行概率假设。作者表明方差的有界性约束是相对较弱的假设约束，除了上述的假设，仍然使用5.1节中的一些定义，如：
+
+- 最小间隔$\Delta$，$\Delta:=\min_{j\not=j^\prime\Vert \theta^*_j-\theta^*_{j^\prime}\Vert}$
+
+- 将$p_i:=\vert S^*_j\vert/m$，
+
+​		作为第$j$个聚簇中客户端数量占总数的比例，
+
+- $p:=\min\{p_1,p_2,...,p_k\}$
+
+对初始化$n^\prime,p,\Delta$做出如下假设：
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326152538630.png" alt="image-20230326152538630" style="zoom:50%;" />
+
+为了简单起见，$\widetilde {\mathcal O}$ 符号省略了任何不依赖于$m$和$n^\prime$的对数因子和数量，正如我们所见的，我们需要假设良好的初始化，因为混合模型的性质和我们对$n^\prime,p,\Delta$相对宽松的假设，特别是$\Delta$假设确保了迭代失踪保持靠近在$\theta^*_j$的$\ell_2$距离的球面上。
+
+
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326154556848.png" alt="image-20230326154556848" style="zoom:50%;" />
+
+假设Assumptions 3-6成立，选择步长$\gamma=1/L$，然后在概率至少为$1-\delta$的情况下，并行迭代$T=\frac{8L}{p\lambda\log(\frac{\Delta}{2\epsilon})}$次，对所有$j\in[k],\Vert\widehat \theta_j-\theta^*_j\Vert\le\epsilon$，其中
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326155009530.png" alt="image-20230326155009530" style="zoom:50%;" />
+
+附录B中证明了定理2，与5.1节类似，为了证明这个结果，首先需要证明每次迭代的收缩：
+
+<img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230326155132692.png" alt="image-20230326155132692" style="zoom:50%;" />
+
+然后获得收敛速度，为了更好的解释结果，作者关注于对m和n的依赖性，并将其他量视为常熟，然后由于$n=2n^\prime T$，我们知道$n$和$n^\prime$在对数银子上具有相同的比例。因此可以得到最终的计算误差为$$\epsilon=\widetilde{\mathcal{O}}\left(\frac{1}{\sqrt{m n}}+\frac{1}{n}\right)$$。如5.1节所述，即使知道集群身份，$\frac{1}{\sqrt{mn}}$也是最佳速率，因此作者的统计率在接近$n\gtrsim m$的情况下接近最优。于线性模型中的统计率相比$$\widetilde{\mathcal{O}}\left(\frac{1}{\sqrt{m n}}+\exp (-n)\right)$$，作者注意到主要区别在于第二项。线性模型和强凸情况下的附加项分别是$\exp(-n)$和$\frac{1}{n}$，作者注意到这是因为由于不同的统计假设：线性模型中，假设高斯噪声，而强凸情况下，只假设有界方差。
+
+------
 
 ## 实验
 
 不会再每次迭代时重新采样新数据点，此外，还可以放宽初始化要求
 
-> More specifically，对于线性模型，我们观察到随机初始化和几次重新启动足以确保算法1的手链
+> More specifically，对于线性模型，我们观察到随机初始化和几次重新启动足以确保算法1的收敛
 
 <img src="https://mz-pico-1311932519.cos.ap-nanjing.myqcloud.com/image/image-20230323102018587.png" alt="image-20230323102018587" style="zoom:33%;" />
 
@@ -183,17 +306,21 @@ $Z\subseteq\{z^{i,1},z^{i,2},...,z^{i,n}\}$是第$i$台机器上数据点的子�
 > - (a)、(b)是分离尺度$R$和加性噪声$\sigma$
 > - (c)、(d)是客户端数量$m$和每个客户端采样大小$n$
 >
-> (a)和(b)中，随着$R$的增加成功的概率增加，即，基本反映出真实参数向量的之间更多的分离
+> (a)和(b)中，随着$R$的增加成功的概率增加，即，基本反映出真实参数向量的之间的距离程度
 >
 > (c)和(d)中，随着$mn$的增加成功的概率在提升，即每个客户端的数据更多/客户端的数量更多，成功的概率也会提升
 
+### 生成数据
+
 首先在具有平方损失的线性模型上使用梯度平均(选项I)评估算法,
 
-首先生成$\theta^*_j\sim\text{Bernoulli(0.5)}的值，并且将它们的$$\ell_2$范数调整为$R$，这确保了$\theta^*_j$之间的间距与$R$成正比期望
+首先生成$\theta^*_j\sim\text{Bernoulli(0.5)}的值，并且将它们的$$\ell_2$范数作为$R$，这确保了$\theta^*_j$之间的间距与$R$成正比期望
+
+> $\theta^*_1,...,\theta^*_j$
 
 每次实验中，首先生成参数向量$\theta^*_j$并固定他们，根据独立的伯努利分布对应的随机初始化$\theta^{(0)}_j$
 
-运行算法1，300次迭代，步长不变。对于$k=2$和$k=4$，分别在$\{0.01,0.1,1\}$和$\{0.5,1.0,2\}$中选择步长。为了确定是否成功学习了模型，我们回到上述步长并定义距离的度量：$\text{dist}=\frac{1}{k}\sum^k_j=1\Vert \hat \theta_j-\theta^*_j\Vert$，其中$\{\hat \theta_j\}^k_{j=1}$是从算法1中获得的参数估计，如果对于$\theta^*_j$的固定集合，在10个随机初始化参数$\theta_j^{(0)}$中，至少在一个场景中获得$\text {dist}\le0.6\sigma$，则实验称为成功
+运行算法1，300次迭代，步长不变。对于$k=2$和$k=4$，分别在$\{0.01,0.1,1\}$和$\{0.5,1.0,2\}$中选择步长。为了确定是否成功学习了模型，我们回到上述步长并定义距离的度量：$\text{dist}=\frac{1}{k}\sum^k_{j=1}\Vert \hat \theta_j-\theta^*_j\Vert$，其中$\{\hat \theta_j\}^k_{j=1}$是从算法1中获得的参数估计，如果对于$\theta^*_j$的固定集合，在10个随机初始化参数$\theta_j^{(0)}$中，至少在一个场景中获得$\text {dist}\le0.6\sigma$，则实验称为成功
 
 在图2(a-b)中，针对分离参数$R$绘制了40次实验的经验成功概率。将问题参数设置为
 
@@ -207,7 +334,7 @@ $Z\subseteq\{z^{i,1},z^{i,2},...,z^{i,n}\}$是第$i$台机器上数据点的子�
 1. (c),  $(R,d)=(0.1,1000)$
 2. (d),  $(R,d)=(0.5,1000)$
 
-观察到，当增加$m$或n$的数量时，成功的概率会提高
+观察到，当增加$m$或$n$的数量时，成功的概率会提高
 
 ### MNIST和CIFAR的旋转
 
