@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /post/ /post/privacy
+permalink: /post/
 title: post
 description: 帖子
 nav: false
