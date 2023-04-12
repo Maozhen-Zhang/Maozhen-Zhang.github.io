@@ -225,7 +225,7 @@ jekyll-archives:
     category: '/blog/category/:name/'
 
 # display_tags: ['formatting', 'images', 'links', 'math', 'code','linux'] # this tags will be dispalyed on the front page of your blog
-display_tags: ['Linux','Package','Research','Pricacy', 'Papers']
+display_tags: ['Code',Linux','Research','Pricacy', 'Papers']
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
 # -----------------------------------------------------------------------------
