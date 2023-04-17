@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 差分隐私的算法基础(3章5节)组合定理
+title: 差分隐私的算法基础(3章5节)-组合定理
 date: 2023-04-17 13:11:00
-description: The Algorithmic Foundationsof Differential Privacy第3章第五节组合定理
+description: The Algorithmic Foundationsof Differential Privacy第3章第五节组合定理理解
 tags: TAFDP
 categories: TAFDP(三)
 published: true
