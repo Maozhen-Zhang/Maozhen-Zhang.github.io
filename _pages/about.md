@@ -25,14 +25,18 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
  -->
 
-I am a second year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/)， advised by Prof. [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
+I am a second year Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/), advised by Prof. [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
 
 <!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
 
 Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
 
 My research interest lies in federated learning on privacy preserving. I am currently focused on federal learning under privacy protection, privacy computing methods for protecting user data.
+
 My research interest lies in Intelligence Artifical Security, Privacy Computering and Image Encryption. I am currentyly focused on backdoor in deep learning, for example backdoor in DNN and Diffusion model.
+
 In addition, I have been very interested in the copyright verification of the neural network model recently.
-Welcome to discuss, exchange and cooperation
+
+Welcome to discuss, exchange and cooperation.
+
 <!-- My long-term goal is to make machine learning algorithms robust and interpretable. -->
