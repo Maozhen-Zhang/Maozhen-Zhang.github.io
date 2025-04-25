@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 group :jekyll_plugins do
+    gem "uri", git: "https://github.com/ruby/uri.git", branch: "master"
     gem 'jekyll'
     gem 'jekyll-archives'
     gem 'jekyll-diagrams'
