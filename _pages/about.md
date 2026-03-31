@@ -24,17 +24,20 @@ Put your address / P.O. box / other info right below your picture. You can also 
 Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
 
  -->
+我是一名[大连理工大学](https://www.dlut.edu.cn/)的博士研究生，导师为[王波教授](http://ice.dlut.edu.cn/WangBo/index.html)。
 
-I am a Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/), advised by Prof. [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
-我是一名大连理工大学（https://www.dlut.edu.cn/）的博士研究生，导师为王博教授（http://ice.dlut.edu.cn/WangBo/index.html）。
-
-<!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
-
-Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
 在此之前，我从大连海事大学获得了计算机科学硕士学位。
 
 我的研究兴趣在于人工智能安全、神经网络后门攻防及模型鲁棒性，神经网络水印溯源等方法。
 
+
+I am a Ph.D. at  [Dalian University of Technology](https://www.dlut.edu.cn/), advised by Prof. [Bo Wang](http://ice.dlut.edu.cn/WangBo/index.html).
+
+
+Before that, I obtained my master's degree in computer sciences from [Dalian Maritime University](http://english.dlmu.edu.cn/).
+
+
+<!-- I am also a research intern at [Secure Learning Lab](https://aisecure.github.io/), [UIUC](https://illinois.edu/), advised by Prof. [Bo Li](https://aisecure.github.io/) and was a research intern at [SCLBD](http://scl.sribd.cn/index.html), [CUHK-Shenzhen](https://www.cuhk.edu.cn/en), advised by Prof. [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/). -->
 
 
 <!-- My research interest lies in federated learning on privacy preserving. I am currently focused on federal learning under privacy protection, privacy computing methods for protecting user data.

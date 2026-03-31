@@ -132,6 +132,18 @@
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
+    <!-- Chinese Academy of Sciences (CAS)分区 -->
+    {%- if entry.cas_category -%}
+    <div class="periodical">
+      CAS 分区: {{ entry.cas_category }}
+    </div>
+    {%- endif -%}
+    <!-- 新锐分区 -->
+    {%- if entry.rising_category -%}
+    <div class="periodical">
+      新锐分区: {{ entry.rising_category }}
+    </div>
+    {%- endif -%}
 
     <!-- Links/Buttons -->
     <div class="links">
