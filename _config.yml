@@ -259,8 +259,6 @@ scholar:
 
   query: "@*"
 
-  bib_search: true
-
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
 
@@ -286,7 +284,7 @@ external_links:
 # -----------------------------------------------------------------------------
 
 imagemagick:
-  enabled: false # enables responsive images for your site (recomended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: true # enables responsive images for your site (recomended, see https://github.com/alshedivat/al-folio/issues/537)
   widths:
     - 480
     - 800
