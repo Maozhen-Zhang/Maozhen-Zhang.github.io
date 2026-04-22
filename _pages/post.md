@@ -3,7 +3,7 @@ layout: default
 title: post
 permalink: /post/
 description: 帖子
-nav: true
+nav: false
 nav_order: 4
 pagination:
   enabled: true
